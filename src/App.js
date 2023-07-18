@@ -32,6 +32,7 @@ const animal = "bullshit";
 const sendInput = async () => {
   await axios.post('http://localhost:3007/tasks', {task});
   setTaskList([...taskList, {task}]);
+  setTask('');
 }
 
   return (
@@ -49,8 +50,8 @@ const sendInput = async () => {
           ))}
         </ul>
 
-        <input type="text" placeholder="type `something" onChange={(event) => setTask(event.target.value)}/>
-        <button className="btn btn-primary" onClick={() => sendInput() }>Click me</button>
+        <input type="text" value={task} placeholder="type `something" onChange={(event) => setTask(event.target.value)}/>
+        <button className="btn btn-primary" onClick={() => sendInput() } disabled={task === '' || !task}>Click me</button>
       </div>
 
     </div>
