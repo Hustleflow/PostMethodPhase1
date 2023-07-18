@@ -26,7 +26,7 @@ getApi();
 const animal = "bullshit";
 
 const sendInput = async () => {
-  await axios.post('http://localhost:3007/tasks', {animal});
+  await axios.post('http://localhost:3007/tasks', {task});
 }
 
   return (
