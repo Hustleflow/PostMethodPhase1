@@ -35,6 +35,13 @@ const sendInput = async () => {
   setTask('');
 }
 
+
+const handlePress = (keypress) => {
+  if (keypress.key === 'Enter') {
+    sendInput();
+  }
+}
+
   return (
     <div className="App container p-4">
       <div>
@@ -50,7 +57,7 @@ const sendInput = async () => {
           ))}
         </ul>
 
-        <input type="text" value={task} placeholder="type `something" onChange={(event) => setTask(event.target.value)}/>
+        <input type="text" value={task} placeholder="type `something" onChange={(event) => setTask(event.target.value)} onKeyDownCapture={(event) => handlePress(event)}/>
         <button className="btn btn-primary" onClick={() => sendInput() } disabled={task === '' || !task}>Click me</button>
       </div>
 
